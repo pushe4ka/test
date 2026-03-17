@@ -3,20 +3,6 @@ abstract class Shape {
     abstract calculatePerimeter(): number;
     abstract calculateArea(): number;
 }
-
-/*export class Square extends Shape {
-    constructor (x: number, y: number, public side: number) {
-        super(x, y);
-    }
-    calculatePerimeter(): number {
-        return 4 * this.side;
-    }
-
-    calculateArea(): number {
-        return this.side**2;
-    }
-}*/
-
 export class Rectangle extends Shape {
     constructor (x: number, y: number, public x2: number, public y2: number) {
         super(x, y);
@@ -36,6 +22,13 @@ export class Rectangle extends Shape {
 
     calculateArea(): number {
         return this.height() * this.width();
+    }
+}
+export class Square extends Rectangle {
+    constructor (x: number, y: number, public side: number) {
+        const x2 = x + side;
+        const y2 = y + side;
+        super(x, y, x2, y2);
     }
 }
 
